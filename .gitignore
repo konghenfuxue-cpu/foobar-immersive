@@ -1,0 +1,17 @@
+# Never publish personal profiles or media
+*.dll
+*.exe
+*.sqlite*
+*.db
+*.dmp
+*.mp3
+*.flac
+*.m4a
+*.lrc
+*.m3u*
+.env*
+*token*
+*secret*
+*cache*/
+.dist/
+.test-profile/

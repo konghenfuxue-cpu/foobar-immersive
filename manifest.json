@@ -1,0 +1,38 @@
+[
+  {
+    "path": "overlay/eslyric-data/layout/日常简洁歌词.xml",
+    "sha256": "4c5dd2f0c0579071a9bf23246c786c440ea6ab0f99be9e697f2558c6231f2c29"
+  },
+  {
+    "path": "overlay/eslyric-data/layout/沉浸歌词.xml",
+    "sha256": "04a41320378f86e5bd3eca2997b4b23fde3214e826358730a64dd8bd027936b1"
+  },
+  {
+    "path": "overlay/foobox/script/js_common/splitterESLProp.js",
+    "sha256": "24b3f250c82f6eff89fa82a860593802abb892a42c27701a5e97552811483100"
+  },
+  {
+    "path": "overlay/foobox/script/js_common/splitterh.js",
+    "sha256": "c19c4e190854dc4328e4e6a762bcdcb8aed156a4d6b53c4aee2c459f6d6881e8"
+  },
+  {
+    "path": "overlay/foobox/script/js_common/splitterve.js",
+    "sha256": "f90595b6d660745414eb5e57240dfc33ed328b429e23b0e60fa2597360df4dab"
+  },
+  {
+    "path": "overlay/foobox/script/js_panels/bottombar.js",
+    "sha256": "2b1807f00618fd2a995dd6f62f0ac4bb42e225269009c62f57cd8c85a805af1d"
+  },
+  {
+    "path": "overlay/foobox/script/js_panels/main_pages.js",
+    "sha256": "2bb5cff418eff51391ef2814e5c2a54a2d6de564817e0d0bd84cc364bf8194dd"
+  },
+  {
+    "path": "overlay/foobox/配色/浅色-仅颜色.fth",
+    "sha256": "7c84ccee3cb49af6eefc37249c5d52d1da1cfb0dd8786adbc725c91f100f7e29"
+  },
+  {
+    "path": "overlay/foobox/配色/深色-仅颜色.fth",
+    "sha256": "f8a65a57ae9d7b4585b9355ba59a34e8cd19ce9f4b64afc591782cc224b43df0"
+  }
+]

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Public replacement layout. No foocolor/LY images or shadow assets are bundled. -->
+<layout xmlns="https://github.com/ESLyric/layout">
+  <panel name="FooboxImmersive" layout="free" orientation="horizontal" features="1">
+    <container name="reading-area" layout="stack" orientation="horizontal" width="100%" height="83%" anchor="top">
+      <container name="lyrics-column" width="56%" height="100%">
+        <lyric name="lyrics" width="88%" height="100%" hide-empty="1" />
+      </container>
+      <container name="artwork-column" width="44%" height="100%">
+        <albumart name="cover" album-art="front" width="78%" aspect-ratio="1.0" radius="18" />
+        <label name="track-title" caption="%title%" text-color="rgb(245,245,245)" font-size="20" width="82%" height="auto" margin-top="3%" loop="cycle" />
+        <label name="track-artist" caption="[%artist%] - %album%" text-color="rgba(245,245,245,0.65)" font-size="17" width="82%" height="auto" margin-top="2%" loop="cycle" />
+      </container>
+    </container>
+    <visualization type="spectrum" width="94%" height="14%" bands="128" segs="20" lo-color="rgba(235,235,235,0.65)" anchor="hcenter,bottom" visibility="1" />
+  </panel>
+</layout>
