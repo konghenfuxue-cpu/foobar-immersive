@@ -1,4 +1,4 @@
-// Modified for Foobar Immersive, 2026-10-12.
+﻿// Modified for Foobar Immersive, 2026-10-12.
 // Based on dream7180/foobox-cn; upstream notices retained. SPDX-License-Identifier: GPL-3.0-only
 // Reuse the existing foobox cover palette; do not decode images again.
 function fooboxReadableAccent(rgb) {

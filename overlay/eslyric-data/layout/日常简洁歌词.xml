@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://github.com/ESLyric/layout">
   <panel layout="free" name="日常简洁歌词" features="1">
     <lyric name="lyric_display" width="92%" height="94%" hide-empty="1" text-align="center" anchor="center" />
