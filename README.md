@@ -80,6 +80,14 @@
 
 发布版歌词布局采用不带第三方图片的简洁实现。私人配置中的 foocolor 阴影图和默认封面没有打包，因此不会与私人截图逐像素相同。公开配色是独立定义的深灰橙色与浅色，不分发原作者的主题文件。
 
+## 近期更新
+
+### JSplitter 升级记录 · 2026-10-12
+
+独立便携测试环境将 JSplitter 从 4.0.4.4-beta 升级到 **4.3.4 x64**；用户反馈持续播放正常后，已将相同组件文件迁入正式配置，主程序为 foobar2000 2.25.10 x64。正式版长期稳定性仍继续观察，不据此宣称历史崩溃已根治。升级方式及简介包注意事项见 [安装说明](docs/INSTALL.md#升级-jsplitter)。组件请从 [JSplitter 官方发布页](https://github.com/dima-lur/jsplitter/releases/tag/v4.3.4) 获取，本仓库不分发 DLL 或私人测试配置。
+
+完整变化记录见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 来源与致谢
 
 本项目属于配置整合与局部改造，不把参考主题称为原创成果。完整来源、参考版本、涉及文件与分发边界见 [ATTRIBUTION.md](ATTRIBUTION.md)。
@@ -99,7 +107,3 @@
 ## 许可证
 
 foobox 衍生脚本遵循 **GPL-3.0**，本项目新增代码也按 GPL-3.0 发布，见 [LICENSE](LICENSE)。第三方软件及参考主题的权利归各自作者；本仓库许可证不替他们授权。
-
-### JSplitter 升级记录 · 2026-10-12
-
-独立便携测试环境将 JSplitter 从 4.0.4.4-beta 升级到 **4.3.4 x64**；用户反馈持续播放正常后，已将相同组件文件迁入正式配置，主程序为 foobar2000 2.25.10 x64。正式版长期稳定性仍继续观察，不据此宣称历史崩溃已根治。升级方式及简介包注意事项见 [安装说明](docs/INSTALL.md#升级-jsplitter)。组件请从 [JSplitter 官方发布页](https://github.com/dima-lur/jsplitter/releases/tag/v4.3.4) 获取，本仓库不分发 DLL 或私人测试配置。
