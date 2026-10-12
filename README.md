@@ -92,3 +92,7 @@
 ## 许可证
 
 foobox 衍生脚本遵循 **GPL-3.0**，本项目新增代码也按 GPL-3.0 发布，见 [LICENSE](LICENSE)。第三方软件及参考主题的权利归各自作者；本仓库许可证不替他们授权。
+
+### JSplitter 升级记录 · 2026-10-12
+
+独立便携测试环境将 JSplitter 从 4.0.4.4-beta 升级到 **4.3.4 x64**；用户反馈持续播放正常后，已将相同组件文件迁入正式配置，主程序为 foobar2000 2.25.10 x64。正式版长期稳定性仍继续观察，不据此宣称历史崩溃已根治。升级方式及简介包注意事项见 [安装说明](docs/INSTALL.md#升级-jsplitter)。组件请从 [JSplitter 官方发布页](https://github.com/dima-lur/jsplitter/releases/tag/v4.3.4) 获取，本仓库不分发 DLL 或私人测试配置。
