@@ -1,8 +1,14 @@
 # Foobar Immersive · 沉浸听歌
 
+**为本地音乐打造更专注的听歌界面。**
+
 基于 [foobox-cn](https://github.com/dream7180/foobox-cn) 的个人界面改造：四个主页面、左歌词右封面、模糊封面背景、随封面变色的频谱，以及深浅配色。
 
 **这是主题源码覆盖层，需要先安装兼容的 foobox；不包含 foobar2000 主程序、组件 DLL、歌曲或第三方整合包。**
+
+[开始安装](#安装) · [安装与使用详解](docs/INSTALL.md) · [兼容与验证](docs/VALIDATION.md) · [来源与署名](ATTRIBUTION.md)
+
+> 当前版本：**0.1.0-preview**。适合已经使用 foobox、愿意调整组件与面板配置的 Windows 用户。公开版尚未完成全新环境下的完整启动和视觉验收；如果你希望下载后直接运行，请先了解下方安装要求。
 
 ## 界面预览
 
@@ -59,7 +65,25 @@
 
 ## 安装
 
-先阅读 [安装与使用](docs/INSTALL.md)。本机改造基线为 Windows、foobar2000 2.25.3 x64、foobox DUI、JSplitter 4.0.4.4-beta、ESLyric 1.0.6.2 Beta。其他 foobox 版本需核对面板名称与脚本入口。
+### 1. 准备环境
+
+先从 [foobox 上游](https://github.com/dream7180/foobox-cn) 安装兼容的 DUI 配置和依赖，再使用本覆盖层。本机改造基线如下，其他版本需核对面板名称与脚本入口，不代表已完成兼容测试。
+
+| 项目 | 本机基线 |
+| --- | --- |
+| 系统 | Windows |
+| 播放器 | foobar2000 2.25.3 x64 |
+| 界面 | foobox DUI |
+| 脚本组件 | JSplitter 4.0.4.4-beta |
+| 歌词组件 | ESLyric 1.0.6.2 Beta |
+
+组件架构须与播放器一致。完整要求见 [安装与使用](docs/INSTALL.md)。
+
+### 2. 下载并检查
+
+在仓库页面选择 **Code → Download ZIP**，解压整个仓库，在解压目录打开 PowerShell。退出 foobar2000，先备份实际配置目录；安装器会覆盖四份同名 foobox 脚本，不会备份整个配置。
+
+下面以普通安装的常见配置路径为例。便携版或自定义位置请替换为实际路径。
 
 ```powershell
 # 只检查，默认不写入。先关闭 foobar。
@@ -69,7 +93,27 @@
 .\Install.ps1 -ProfilePath "$env:APPDATAoobar2000-v2" -Apply
 ```
 
+### 3. 启用界面
+
+复制完成后，还需要按 [安装与使用](docs/INSTALL.md) 配置：
+
+1. 核对根控制脚本入口为 `foobox/script/js_panels/bottombar.js`。
+2. 在 ESLyric 中启用自定义布局，选择 `FooboxImmersive`，并启用对外脚本控制。
+3. 如需深浅配色，在 foobar 默认用户界面设置中导入配置目录下的 `foobox/配色/深色-仅颜色.fth` 或 `浅色-仅颜色.fth`。
+
 发布版歌词布局采用不带第三方图片的简洁实现。私人配置中的 foocolor 阴影图和默认封面没有打包，因此不会与私人截图逐像素相同。公开配色是独立定义的深灰橙色与浅色，不分发原作者的主题文件。
+
+## 常见问题与当前状态
+
+**是否已经完整验证公开版？** 现有记录包括 JS 语法、XML 解析、配色文件结构与安装器模拟复制检查。私人配置曾完成显示验收，但公开版替换了部分素材与布局实现，完整启动与视觉验收仍待完成。详情见 [验证记录](docs/VALIDATION.md) 和 [更新记录](CHANGELOG.md)。
+
+**会自动提供双语歌词吗？** 双语显示需要歌词文本本身包含原文和译文，本主题不自动翻译或下载歌曲。
+
+**顶部没有四个标签，或提示面板不存在？** 先核对根脚本入口与原布局面板名称。覆盖层不自动适配任意主题；必要时恢复原脚本，按 [布局兼容说明](docs/INSTALL.md#布局兼容) 排查。
+
+**移除可视化入口是否会卸载组件？** 不会。安装器不删除原布局中的隐藏面板，也不卸载组件，ESLyric 内置频谱仍保留。
+
+如需反馈，请在 [Issues](https://github.com/konghenfuxue-cpu/foobar-immersive/issues) 提供 foobar、foobox 与组件版本、操作步骤及报错信息。
 
 ## 来源与致谢
 
