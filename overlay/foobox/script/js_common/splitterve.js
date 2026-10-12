@@ -1,4 +1,4 @@
-﻿// Modified for Foobar Immersive, 2026-10-12.
+// Modified for Foobar Immersive, 2026-10-12.
 // Based on dream7180/foobox-cn; upstream notices retained. SPDX-License-Identifier: GPL-3.0-only
 window.DefinePanel('Jsplitter V01');
 include(fb.ProfilePath + 'foobox\\script\\js_common\\common.js');
