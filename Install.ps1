@@ -2,7 +2,8 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $true)][string]$ProfilePath,
-    [switch]$Apply
+    [switch]$Apply,
+    [switch]$KeepColours
 )
 $ErrorActionPreference = 'Stop'
 $profileRoot = (Resolve-Path -LiteralPath $ProfilePath).ProviderPath
@@ -55,6 +56,26 @@ if ($items.Count -ne $manifest.Count) { throw 'Manifest file count mismatch.' }
 if ($Apply -and @(Get-Process -Name foobar2000 -ErrorAction SilentlyContinue).Count -gt 0) {
     throw 'Close foobar2000 before applying the overlay.'
 }
+$themePath = Join-Path $profileRoot 'theme.fth'
+$darkThemeBytes = $null
+$originalThemeBytes = $null
+if (-not $KeepColours) {
+    . (Join-Path $PSScriptRoot 'scripts\ThemeColours.ps1')
+    if (-not (Test-Path -LiteralPath $themePath -PathType Leaf)) {
+        throw 'Cannot find theme.fth. Open and exit the installed foobox once, then retry; or use -KeepColours to leave colours unchanged.'
+    }
+    $originalThemeBytes = [IO.File]::ReadAllBytes($themePath)
+    $palette = [IO.File]::ReadAllBytes((Join-Path $overlayRoot 'foobox\配色\深色-仅颜色.fth'))
+    $darkThemeBytes = Merge-FooboxThemeColours $originalThemeBytes $palette
+    Write-Output 'COLOURS: dark grey / orange default; existing layout and fonts are preserved.'
+    if ($Apply -and [Convert]::ToBase64String($originalThemeBytes) -ne [Convert]::ToBase64String($darkThemeBytes)) {
+        $themeBackup = Join-Path $profileRoot ('foobox-theme-before-dark-' + (Get-Date -Format 'yyyyMMdd-HHmmssfff') + '.fth')
+        if (Test-Path -LiteralPath $themeBackup) { throw 'Theme backup path already exists.' }
+        [IO.File]::WriteAllBytes($themeBackup, $originalThemeBytes)
+        if ([Convert]::ToBase64String([IO.File]::ReadAllBytes($themeBackup)) -ne [Convert]::ToBase64String($originalThemeBytes)) { throw 'Theme backup verification failed.' }
+        Write-Output ('THEME BACKUP: ' + $themeBackup)
+    }
+}
 foreach ($item in $items) {
     $relative = $item.FullName.Substring($overlayRoot.Length).TrimStart('\','/')
     $destination = [IO.Path]::GetFullPath((Join-Path $profileRoot $relative))
@@ -68,5 +89,10 @@ foreach ($item in $items) {
         Copy-Item -LiteralPath $item.FullName -Destination $destination -Force
     }
 }
-if ($Apply) { Write-Output 'Overlay copied. Enable FooboxImmersive in ESLyric and import the colour-only theme if desired.' }
+if ($Apply -and -not $KeepColours) {
+    if ([Convert]::ToBase64String([IO.File]::ReadAllBytes($themePath)) -ne [Convert]::ToBase64String($originalThemeBytes)) { throw 'Theme changed during installation; refusing to overwrite it.' }
+    [IO.File]::WriteAllBytes($themePath, $darkThemeBytes)
+    if ([Convert]::ToBase64String([IO.File]::ReadAllBytes($themePath)) -ne [Convert]::ToBase64String($darkThemeBytes)) { throw 'Theme write verification failed.' }
+}
+if ($Apply) { Write-Output 'Overlay copied. Default colours applied unless -KeepColours was selected. Enable FooboxImmersive in ESLyric.' }
 else { Write-Output 'No files changed. Run with -Apply to install.' }

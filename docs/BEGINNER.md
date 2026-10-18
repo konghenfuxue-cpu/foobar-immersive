@@ -54,11 +54,13 @@ foobox 8.8 的布局匹配，但自带 ESLyric 0.5.4 与 JSplitter 4.0.4.4，版
 powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1 -ProfilePath "$env:APPDATA\foobar2000-v2"
 ```
 
-这是只检查模式。只有看到 `No files changed` 且没有错误，才能继续：
+这是只检查模式，不会改变任何文件。默认也会检查深色配色能否合并；只有看到 `No files changed` 且没有错误，才能继续：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1 -ProfilePath "$env:APPDATA\foobar2000-v2" -Apply
 ```
+
+安装后默认使用深灰底、浅色文字、橙色强调色。安装器只替换主题中的颜色区段，不覆盖主布局和字体；原主题自动备份为配置目录中的 `foobox-theme-before-dark-日期时间.fth`。已有用户如需保留当前配色，在上述命令末尾加 `-KeepColours`。完整配置仍需按前文自行备份。
 
 检查通过只说明文件结构和包校验通过，不证明原生布局兼容。便携模式的配置路径不同，不能照抄上面的配置路径，见 [目录和安装](INSTALL.md#目录和安装)。
 
@@ -76,7 +78,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Install.ps1 -ProfilePath "
 
 本项目还需要 ESLyric 对外脚本控制接口。在“首选项 → 工具 → ESLyric → 高级选项”将 `pref.script.expose` 设为 `1`，然后重启。8.8 安装包也提供组件目录中的 `enable_script_control` 空文件；本轮已确认存在。两种方式都来自 [ESLyric 官方接口说明](https://github.com/ESLyric/release/wiki/外部JS面板控制接口)，不是要求同时重复设置。
 
-随后点击顶部“沉浸歌词”。选择深浅配色时，打开“首选项 → 显示 → 默认用户界面 → 导入主题”，选实际配置目录下的 `foobox/配色/深色-仅颜色.fth` 或 `浅色-仅颜色.fth`。
+随后点击顶部“沉浸歌词”。新安装默认就是深色，无需额外导入。以后希望切换深浅配色时，打开“首选项 → 显示 → 默认用户界面 → 导入主题”，选实际配置目录下的 `foobox/配色/深色-仅颜色.fth` 或 `浅色-仅颜色.fth`。
 
 ## 7. 添加自己的音乐，检查效果
 
