@@ -6,6 +6,14 @@
 
 只用与播放器相同架构的组件。出现 `Not a valid Win32 application` 时先核对 x86 / x64，不要继续复制旧整合包的 DLL。
 
+## 下载来源
+
+1. **播放器**：中文用户可从 [Asion 汉化版作者发布页](https://www.cnblogs.com/asionwu/p/21537446) 获取安装资源；本机已使用版本为 **foobar2000 v2.25.10 x64**，这不代表其他版本已经验证。原版请到 [foobar2000 官方下载页](https://www.foobar2000.org/download) 获取。汉化与主程序归原作者，本项目不重新上传汉化安装程序。
+2. **foobox 基础主题**：从 [foobox 官方 Releases](https://github.com/dream7180/foobox-cn/releases) 获取与播放器架构兼容的主题及依赖，先完成上游安装。
+3. **本项目覆盖层**：当前下载 [源码 ZIP](https://github.com/konghenfuxue-cpu/foobar-immersive/archive/refs/heads/main.zip)，解压后按本文说明运行 `Install.ps1`。这是需要现有 foobox 的主题覆盖层，不是解压即用的播放器。
+
+**发布状态（2026-10-18）**：尚未提供主题安装器 EXE 或独立 Release 资源包。后续资源包将在 [本项目 Releases](https://github.com/konghenfuxue-cpu/foobar-immersive/releases) 提供；当前不要把该页面当成已有安装包下载入口。计划以主题配置安装包交付，播放器仍从上述来源获取；第三方组件按各自许可决定能否打包。托盘优化仍在本机测试，存在首次恢复页面空白的反馈，不能据此承诺固定内存占用或已解决恢复问题。
+
 ## 目录和安装
 
 1. 退出 foobar，定位配置目录。普通安装常见为 `%APPDATA%/foobar2000-v2`，便携版一般为安装位置内的 `profile`，以实际位置为准。
