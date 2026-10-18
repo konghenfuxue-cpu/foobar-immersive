@@ -68,12 +68,12 @@
 
 ### 第一次安装，从这里开始
 
-想从零安装，请阅读 **[新手安装：从下载到沉浸歌词](docs/BEGINNER.md)**。教程按具体文件、安装步骤、歌词与配色设置逐步说明；当前公开包尚缺完整主界面布局及全新安装验收，不能保证任意新安装直接复现截图。
+想从零安装，请阅读 **[新手安装：从下载到沉浸歌词](docs/BEGINNER.md)**。教程按具体文件、安装步骤、歌词与配色设置逐步说明；本轮固定使用 **foobox 8.8 默认布局 + JSplitter 4.3.4 + ESLyric 1.0.6.2**；安装文件、布局依赖和实际复制已核验，完整视觉验收仍在进行。不要直接用最新 foobox 8.14。
 
 ### 下载入口与安装顺序
 
 1. **播放器**：中文用户可从 [Asion 汉化版作者发布页](https://www.cnblogs.com/asionwu/p/21537446) 获取安装资源；本机已使用版本为 **foobar2000 v2.25.10 x64**，这不代表其他版本已经验证。原版请到 [foobar2000 官方下载页](https://www.foobar2000.org/download) 获取。汉化与主程序归原作者，本项目不重新上传汉化安装程序。
-2. **foobox 基础主题**：从 [foobox 官方 Releases](https://github.com/dream7180/foobox-cn/releases) 获取与播放器架构兼容的主题及依赖，先完成上游安装。
+2. **foobox 基础主题**：从 [foobox 8.8 发布页](https://github.com/dream7180/foobox-cn/releases/tag/8.8) 下载 `foobox_x64.cn.v8.8-1.exe`，再按新手教程更新 JSplitter 和 ESLyric。当前覆盖层不兼容 8.14 的根脚本结构。
 3. **本项目覆盖层**：当前下载 [源码 ZIP](https://github.com/konghenfuxue-cpu/foobar-immersive/archive/refs/heads/main.zip)，解压后按下方说明运行 `Install.ps1`。这是需要现有 foobox 的主题覆盖层，不是解压即用的播放器。
 
 **发布状态（2026-10-18）**：尚未提供主题安装器 EXE 或独立 Release 资源包。后续资源包将在 [本项目 Releases](https://github.com/konghenfuxue-cpu/foobar-immersive/releases) 提供；当前不要把该页面当成已有安装包下载入口。计划以主题配置安装包交付，播放器仍从上述来源获取；第三方组件按各自许可决定能否打包。托盘优化仍在本机测试，存在首次恢复页面空白的反馈，不能据此承诺固定内存占用或已解决恢复问题。
