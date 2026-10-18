@@ -20,7 +20,18 @@ function Backup-FoobarProfile([string]$Profile) {
  }
  return $backup
 }
-function Get-VerifiedAsset([string]$Repository,[string]$Tag,[string]$Name,[string]$Cache,[string]$ExpectedHash='') {
+function Get-VerifiedAsset([string]$Repository,[string]$Tag,[string]$Name,[string]$Cache,[string]$ExpectedHash='',[string]$OfflineDirectory=(Join-Path $PSScriptRoot '..\dependencies')) {
+ # Check bundled originals before contacting any network API.
+ if($ExpectedHash){
+  $bundled=Join-Path $OfflineDirectory $Name
+  if(Test-Path -LiteralPath $bundled -PathType Leaf){
+   if((Get-FileHash -LiteralPath $bundled).Hash -ne $ExpectedHash){throw "包内依赖校验失败：$Name，请重新下载安装包。"}
+   Write-Host "使用包内依赖：$Name"
+   return $bundled
+  }
+  $cached=Join-Path $Cache $Name
+  if((Test-Path -LiteralPath $cached -PathType Leaf) -and (Get-FileHash -LiteralPath $cached).Hash -eq $ExpectedHash){return $cached}
+ }
  $headers=@{'User-Agent'='foobar-immersive-setup';'Accept'='application/vnd.github+json'}
  $release=Invoke-RestMethod -Uri "https://api.github.com/repos/$Repository/releases/tags/$Tag" -Headers $headers
  $asset=@($release.assets | Where-Object name -eq $Name)

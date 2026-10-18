@@ -6,6 +6,8 @@
 
 ## 简便入口：中文安装助手（预览）
 
+推荐到 [Releases](https://github.com/konghenfuxue-cpu/foobar-immersive/releases) 下载名称含 **offline** 的离线包。它已包含 foobox、ESLyric 和 JSplitter 原包，解压后双击 **一键安装.cmd**，安装主题与组件无需重复联网下载；播放器仍需单独安装。
+
 下载并解压本项目 ZIP，双击根目录的 **`一键安装.cmd`**。无需复制命令。助手会识别常见播放器目录；自定义位置只需粘贴一次安装文件夹路径。
 
 助手会备份并校验现有配置，下载固定的 foobox 8.8、ESLyric 1.0.6.2 和 JSplitter 4.3.4，保留原有脚本包，应用四页主题与默认深色。已有兼容 foobox 时跳过基础主题安装。

@@ -14,6 +14,17 @@ try {
  if((Get-FoobarProfile $player) -ne (Join-Path $player 'profile')){throw 'portable detection failed'}
  if((Get-SetupPlan -HasPlayer $false -HasFoobox $false) -notcontains 'player'){throw 'missing player step'}
  if((Get-SetupPlan -HasPlayer $true -HasFoobox $true) -contains 'player'){throw 'unexpected player step'}
+ $offline=Join-Path $root 'offline'
+ New-Item -ItemType Directory -Path $offline | Out-Null
+ [IO.File]::WriteAllText((Join-Path $offline 'fixture.bin'),'offline')
+ $hash=(Get-FileHash -LiteralPath (Join-Path $offline 'fixture.bin')).Hash
+ function Invoke-RestMethod {throw 'Unexpected network access'}
+ $local=Get-VerifiedAsset 'invalid/repo' 'none' 'fixture.bin' $root $hash $offline
+ if($local -ne (Join-Path $offline 'fixture.bin')){throw 'offline file not selected'}
+ $rejected=$false
+ try {Get-VerifiedAsset 'invalid/repo' 'none' 'fixture.bin' $root ('0'*64) $offline | Out-Null} catch {$rejected=$_.Exception.Message -match '校验'}
+ if(-not $rejected){throw 'corrupt offline file not rejected'}
+ Remove-Item Function:\Invoke-RestMethod
  Add-Type -AssemblyName System.IO.Compression.FileSystem
  $archive=Join-Path $root 'test.zip'
  $zip=[IO.Compression.ZipFile]::Open($archive,[IO.Compression.ZipArchiveMode]::Create)

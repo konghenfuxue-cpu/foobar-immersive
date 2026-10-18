@@ -1,6 +1,6 @@
 # Foobar Immersive · 沉浸听歌
 
-**新手简便入口（预览）**：下载 [ZIP](https://github.com/konghenfuxue-cpu/foobar-immersive/archive/refs/heads/main.zip)，解压后双击 **一键安装.cmd**，按中文提示操作。助手负责固定版本下载、配置备份、组件更新和默认深色；首次安装播放器和 foobox 时仍需完成上游向导。[详细说明](docs/BEGINNER.md#简便入口中文安装助手预览)。
+**新手简便入口（预览）**：到 [Releases](https://github.com/konghenfuxue-cpu/foobar-immersive/releases) 下载 **offline 离线 ZIP**，解压后双击 **一键安装.cmd**，按中文提示操作。助手负责固定版本下载、配置备份、组件更新和默认深色；首次安装播放器和 foobox 时仍需完成上游向导。[详细说明](docs/BEGINNER.md#简便入口中文安装助手预览)。
 
 基于 [foobox-cn](https://github.com/dream7180/foobox-cn) 的个人界面改造：四个主页面、左歌词右封面、模糊封面背景、随封面变色的频谱，以及深浅配色。新安装默认使用深灰橙色，可手动切换浅色。
 
