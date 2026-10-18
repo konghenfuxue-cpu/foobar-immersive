@@ -1,10 +1,12 @@
 """Integration check using supplied real component DLLs; never touches a live profile."""
 from pathlib import Path
-import hashlib, shutil, struct, subprocess, sys, tempfile
+import hashlib, shutil, struct, subprocess, sys, tempfile, os
 repo=Path(__file__).resolve().parents[1]
 runtime=Path(sys.argv[1]).resolve()
-pwsh=shutil.which('pwsh') or shutil.which('powershell')
+pwsh=sys.argv[2] if len(sys.argv)>2 else (shutil.which('pwsh') or shutil.which('powershell'))
 assert pwsh,'PowerShell is required'
+env=os.environ.copy()
+if 'windowspowershell' in pwsh.lower():env['PSModulePath']=str(Path(pwsh).parent/'Modules')
 def sections(data):
  count=struct.unpack_from('<I',data,16)[0];pos=20;out=[]
  for _ in range(count):
@@ -20,10 +22,10 @@ for keep in [False,True]:
   for rel in ['foobox/script/js_panels/bottombar.js','foobox/script/js_common/common.js','foobox/script/js_common/splitterh.js','foobox/script/js_common/splitterve.js','foobox/script/js_common/splitterESLProp.js','user-components-x64/foo_uie_eslyric/foo_uie_eslyric.dll','user-components-x64/foo_uie_jsplitter/foo_uie_jsplitter.dll','theme.fth']:
    dst=profile/rel;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(runtime/rel,dst)
   original=(profile/'theme.fth').read_bytes();before=snap(profile)
-  cmd=[pwsh,'-NoProfile','-File',str(repo/'Install.ps1'),'-ProfilePath',str(profile)]+(['-KeepColours'] if keep else [])
-  r=subprocess.run(cmd,capture_output=True,text=True,encoding='utf-8',errors='replace');assert r.returncode==0,r.stderr
+  cmd=[pwsh,'-NoProfile','-ExecutionPolicy','Bypass','-File',str(repo/'Install.ps1'),'-ProfilePath',str(profile)]+(['-KeepColours'] if keep else [])
+  r=subprocess.run(cmd,env=env,capture_output=True,text=True,encoding='utf-8',errors='replace');assert r.returncode==0,r.stderr
   assert snap(profile)==before,'Dry run modified the profile'
-  r=subprocess.run(cmd+['-Apply'],capture_output=True,text=True,encoding='utf-8',errors='replace');assert r.returncode==0,r.stderr
+  r=subprocess.run(cmd+['-Apply'],env=env,capture_output=True,text=True,encoding='utf-8',errors='replace');assert r.returncode==0,r.stderr
   actual=(profile/'theme.fth').read_bytes()
   if keep:assert actual==original,'KeepColours changed theme bytes'
   else:

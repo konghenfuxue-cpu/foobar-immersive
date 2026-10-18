@@ -45,7 +45,8 @@ foreach ($runtime in $runtimeRequirements) {
     Write-Output ("COMPONENT: {0} {1}" -f $runtime.Name, $version)
 }
 $items = @(Get-ChildItem -LiteralPath $overlayRoot -Recurse -File)
-$manifest = @(Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json)
+# Windows PowerShell 5.1 emits a JSON array as one pipeline object.
+$manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 foreach ($entry in $manifest) {
     $sourceFile = Join-Path $PSScriptRoot $entry.path
     if ((Get-FileHash -LiteralPath $sourceFile -Algorithm SHA256).Hash.ToLowerInvariant() -ne $entry.sha256) {
