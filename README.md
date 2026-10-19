@@ -6,7 +6,7 @@
 
 **Windows x64** · 中文安装助手 · 默认深色 · 自动备份配置
 
-[新手教程](docs/BEGINNER.md) · [常见问题](#常见问题) · [更新记录](CHANGELOG.md)
+[新手教程](docs/BEGINNER.md) · [常见问题](#常见问题) · **[问题反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues/new/choose)** · [更新记录](CHANGELOG.md)
 
 下载 Releases 中名称含 **offline** 的 ZIP，解压后双击 **一键安装.cmd**。安装包已包含主题和所需组件，**foobar2000 播放器需单独安装**。
 
@@ -110,6 +110,12 @@
 [完整变化记录](CHANGELOG.md) · [验证范围](docs/VALIDATION.md)
 
 公开包未包含仍在本机测试的托盘内存优化，不承诺固定内存值。
+## 问题反馈
+
+遇到安装失败、页面空白或其他异常，请到 **[GitHub Issues 提交反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues/new/choose)**。先查看 [已有反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues)，同一问题可直接补充。
+
+模板会提示填写安装包与播放器版本、操作步骤、播放状态和报错截图。上传前请遮住用户名、私人路径和其他敏感信息，不要上传音乐文件或整个私人配置。
+
 ## 来源与致谢
 
 本项目属于配置整合与局部改造，不把参考主题称为原创成果。完整来源、参考版本、涉及文件与分发边界见 [ATTRIBUTION.md](ATTRIBUTION.md)。
