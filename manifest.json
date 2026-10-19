@@ -13,11 +13,11 @@
   },
   {
     "path": "overlay/foobox/script/js_common/splitterh.js",
-    "sha256": "c19c4e190854dc4328e4e6a762bcdcb8aed156a4d6b53c4aee2c459f6d6881e8"
+    "sha256": "a1432fd3a31641a09060843ced6b77cea5d003460bdb6a545f37c2be069bb50e"
   },
   {
     "path": "overlay/foobox/script/js_common/splitterve.js",
-    "sha256": "f90595b6d660745414eb5e57240dfc33ed328b429e23b0e60fa2597360df4dab"
+    "sha256": "60161e9f29cab98e4f3cabfc64c08078dfe0396dd1b90054ac198cfb924dd404"
   },
   {
     "path": "overlay/foobox/script/js_panels/bottombar.js",
@@ -25,7 +25,7 @@
   },
   {
     "path": "overlay/foobox/script/js_panels/main_pages.js",
-    "sha256": "1e74a5906e58194e67fb53d5a19e86084c388da6467cfb2d8a4af5f8b8451365"
+    "sha256": "bed5e5bf618390b5dc1f09764d053d644dcc8cf186529e547524d65ee28e41f5"
   },
   {
     "path": "overlay/foobox/配色/浅色-仅颜色.fth",

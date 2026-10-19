@@ -1,4 +1,4 @@
-﻿// Modified for Foobar Immersive, 2026-10-12.
+// Modified for Foobar Immersive, 2026-10-12.
 // Based on dream7180/foobox-cn; upstream notices retained. SPDX-License-Identifier: GPL-3.0-only
 window.DefinePanel('Jsplitter V01');
 include(fb.ProfilePath + 'foobox\\script\\js_common\\common.js');
@@ -76,7 +76,7 @@ function on_paint(gr) {
 	if(draw_splitter){
 		gr.FillGradRect(0, PUpper.Height, ww, 1, 0, g_color_background, /*linecolor*/divcolor, 0.5);
 	} else if(splitter_hover) gr.DrawLine(0, PUpper.Height, ww, PUpper.Height, 1, divcolor);
-	
+
 }
 
 function on_mouse_move(x, y) {
@@ -124,7 +124,7 @@ function on_colours_changed() {
 function on_notify_data(name, info) {
     if (name === 'foobox.main.page') {
         var next = info === 'lyrics';
-        if (next === fooboxImmersive) return;
+        if (next === fooboxImmersive) { PUpper.Show(!next); PLower.Show(true); on_size(); window.Repaint(); return; }
         if (next && wh > 2) upperratio = PUpper.Height / (wh - 2);
         fooboxImmersive = next;
         PUpper.Show(!next); PLower.Show(true);

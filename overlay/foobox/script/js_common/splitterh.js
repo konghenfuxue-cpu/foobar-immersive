@@ -1,4 +1,4 @@
-﻿// Modified for Foobar Immersive, 2026-10-12.
+// Modified for Foobar Immersive, 2026-10-12.
 // Based on dream7180/foobox-cn; upstream notices retained. SPDX-License-Identifier: GPL-3.0-only
 include(fb.ProfilePath + 'foobox\\script\\js_common\\common.js');
 window.DlgCode = DLGC_WANTALLKEYS;
@@ -108,7 +108,7 @@ function on_font_changed() {
 function on_notify_data(name, info) {
     if (name === 'foobox.main.page' && fooboxMainSplit) {
         var next = info === 'lyrics';
-        if (next === fooboxImmersive) { on_size(); return; }
+        if (next === fooboxImmersive) { PLeft.Show(!next); PRight.Show(true); on_size(); window.Repaint(); return; }
         if (next && ww > 2) leftratio = PLeft.Width / (ww - 2);
         fooboxImmersive = next;
         PLeft.Show(!next); PRight.Show(true);

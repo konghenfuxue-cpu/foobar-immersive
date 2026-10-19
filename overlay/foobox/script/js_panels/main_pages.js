@@ -91,4 +91,11 @@ initbuttons = function() {
         else if (id !== 3 + bio_panel) fooboxOriginalSwitch.call(g_switchbar, id);
     };
 };
-window.SetTimeout(function() { fooboxSelectPage('music'); }, 150);
+// Nested native panels can finish loading after the navigation panel.
+// Re-send current state during startup only, without resetting user navigation.
+[150, 600, 1500].forEach(function(delay) {
+    window.SetTimeout(function() {
+        window.NotifyOthers('foobox.main.page', fooboxMainPage);
+        window.Repaint();
+    }, delay);
+});
