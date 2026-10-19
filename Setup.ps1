@@ -40,6 +40,7 @@ try {
  if(-not $backup){$backup=Backup-FoobarProfile $profile;Write-Host "完整备份：$backup"}
  Install-X64Component $esl $profile 'foo_uie_eslyric'
  Install-X64Component $js $profile 'foo_uie_jsplitter'
+ Enable-FoobarLyricControl $profile
  & (Join-Path $PSScriptRoot 'Install.ps1') -ProfilePath $profile
  & (Join-Path $PSScriptRoot 'Install.ps1') -ProfilePath $profile -Apply
  Write-Host '安装完成：默认深色，顶部四个页面。将自己的歌曲拖入播放器即可开始。' -ForegroundColor Green

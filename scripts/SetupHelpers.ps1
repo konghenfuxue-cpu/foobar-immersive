@@ -66,3 +66,15 @@ function Install-X64Component([string]$Archive,[string]$Profile,[string]$Compone
   }
  } finally {$zip.Dispose()}
 }
+
+# ESLyric 1.0.6.2 documented startup switch. Keep it local to this component.
+function Enable-FoobarLyricControl([string]$Profile) {
+ $component=Join-Path $Profile 'user-components-x64\foo_uie_eslyric'
+ if(-not (Test-Path -LiteralPath (Join-Path $component 'foo_uie_eslyric.dll') -PathType Leaf)){throw '找不到 ESLyric x64 组件，未写入脚本控制标识。'}
+ $marker=Join-Path $component 'enable_script_control'
+ if(-not (Test-Path -LiteralPath $marker)){
+  $stream=[IO.File]::Open($marker,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write)
+  $stream.Dispose()
+ }
+ Write-Host 'ESLyric 脚本控制已启用，重启播放器后生效。'
+}

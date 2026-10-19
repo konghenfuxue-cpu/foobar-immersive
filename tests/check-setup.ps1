@@ -25,7 +25,7 @@ try {
  try {Get-VerifiedAsset 'invalid/repo' 'none' 'fixture.bin' $root ('0'*64) $offline | Out-Null} catch {$rejected=$_.Exception.Message -match '校验'}
  if(-not $rejected){throw 'corrupt offline file not rejected'}
  Remove-Item Function:\Invoke-RestMethod
- Add-Type -AssemblyName System.IO.Compression.FileSystem
+ Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
  $archive=Join-Path $root 'test.zip'
  $zip=[IO.Compression.ZipFile]::Open($archive,[IO.Compression.ZipArchiveMode]::Create)
  $entry=$zip.CreateEntry('x64/foo_test.dll')
@@ -36,5 +36,12 @@ try {
  Install-X64Component $archive $profile 'foo_test'
  if([IO.File]::ReadAllText((Join-Path $packageDir 'keep.js')) -ne 'keep'){throw 'samples lost'}
  if([IO.File]::ReadAllText((Join-Path $profile 'user-components-x64\foo_test\foo_test.dll')) -ne 'fixture'){throw 'component extraction failed'}
+ $eslDir=Join-Path $profile 'user-components-x64\foo_uie_eslyric'
+ New-Item -ItemType Directory -Path $eslDir -Force | Out-Null
+ [IO.File]::WriteAllText((Join-Path $eslDir 'foo_uie_eslyric.dll'),'fixture')
+ Enable-FoobarLyricControl $profile
+ $marker=Join-Path $eslDir 'enable_script_control'
+ if(-not (Test-Path -LiteralPath $marker) -or (Get-Item -LiteralPath $marker).Length -ne 0){throw 'script control marker missing'}
+ Enable-FoobarLyricControl $profile
  'PASS: setup backup, portable path, plan and component preservation'
 } finally {if(Test-Path -LiteralPath $root){Remove-Item -LiteralPath $root -Recurse -Force}}
