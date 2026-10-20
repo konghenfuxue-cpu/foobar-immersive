@@ -1,14 +1,22 @@
-# Foobar Immersive · 沉浸听歌
+<p align="center">
+  <img src="docs/images/logo-scarf-v2.png" alt="Foobar Immersive：戴耳机与围巾的黑白草稿猫脸" width="144">
+</p>
 
-让本地音乐拥有左歌词、右封面与实时频谱。
+<h1 align="center">Foobar Immersive · 沉浸听歌</h1>
 
-### [下载离线正式版 →](https://github.com/konghenfuxue-cpu/foobar-immersive/releases/latest)
+<p align="center">为 foobar2000 配上沉浸歌词、专辑封面与实时频谱，让本地听歌更舒服。</p>
 
-**Windows x64** · 中文安装助手 · 默认深色 · 自动备份配置
+<p align="center">
+  <a href="https://github.com/konghenfuxue-cpu/foobar-immersive/releases/latest"><strong>下载离线正式版 →</strong></a>
+  · <a href="docs/BEGINNER.md">新手教程</a>
+  · <a href="https://github.com/konghenfuxue-cpu/foobar-immersive/issues/new/choose">问题反馈</a>
+</p>
 
-[新手教程](docs/BEGINNER.md) · [常见问题](#常见问题) · **[问题反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues/new/choose)** · [更新记录](CHANGELOG.md)
+<p align="center">Windows x64 · 中文安装助手 · 深浅配色 · 自动备份配置</p>
 
-下载 Releases 中名称含 **offline** 的 ZIP，解压后双击 **一键安装.cmd**。安装包已包含主题和所需组件，**foobar2000 播放器需单独安装**。
+下载发布页 Assets 中名称含 **offline** 的 ZIP，全部提取后运行 **一键安装.cmd**。包内包含主题与所需组件；**foobar2000 播放器需单独安装**。
+
+当前正式包：[`foobar-immersive-offline-v0.1.0-preview.5.zip`](https://github.com/konghenfuxue-cpu/foobar-immersive/releases/download/v0.1.0-preview.5/foobar-immersive-offline-v0.1.0-preview.5.zip)。文件名保留了历史 `preview.5` 字样，发布状态已为正式版。
 
 ## 实际效果
 
@@ -29,13 +37,21 @@
 
 | 步骤 | 操作 |
 | --- | --- |
-| **1 · 准备播放器** | 已有 x64 播放器可直接进入下一步。首次安装请从 [Asion 作者页](https://www.cnblogs.com/asionwu/p/21537446) 获取普通 x64 汉化版，或使用 [官方原版](https://www.foobar2000.org/download)。本轮验证版本为 2.25.10 x64。 |
+| **1 · 准备播放器** | 准备 x64 播放器：可从 [Asion 作者页](https://www.cnblogs.com/asionwu/p/21537446) 获取普通 x64 汉化版，或使用 [官方原版](https://www.foobar2000.org/download)。已有播放器可跳过；已验证版本为 2.25.10 x64。 |
 | **2 · 安装主题** | 退出播放器，下载 [离线正式版](https://github.com/konghenfuxue-cpu/foobar-immersive/releases/latest)，全部提取后双击 **一键安装.cmd**，按中文提示操作。 |
 | **3 · 添加歌曲** | 启动播放器，将自己的歌曲拖入即可播放。要管理整个音乐文件夹，到 `Ctrl+P → 媒体库` 添加目录。 |
 
 **安装位置只记一条：选择这次要使用的 `foobar2000.exe` 所在文件夹，不要选 `profile`。** foobox 安装窗口可能自动找到另一套播放器，继续前请确认路径。首次安装仍需完成上游向导，详细选项见 [图文步骤与备份恢复](docs/BEGINNER.md)。
 
 ## 能做什么
+
+- ✅ 左歌词、右封面，配合模糊背景与实时频谱
+- ✅ 播放列表和封面音乐库，兼顾日常选歌与收藏浏览
+- ✅ 深浅两套配色，封面强调色随歌曲变化
+- ✅ 中文安装提示，安装前自动备份播放器配置
+
+<details>
+<summary>查看四个页面的具体用途</summary>
 
 | 页面 | 用途 |
 | --- | --- |
@@ -44,7 +60,9 @@
 | **沉浸歌词** | 左歌词、右封面、模糊背景和随封面变色的实时频谱。 |
 | **歌曲信息** | 查看 Biography 艺术家或专辑资料，在线内容取决于来源是否可用。 |
 
-支持深浅配色，安装默认深灰橙色；封面强调色可随歌曲变化。进度条可拖动定位，底部频谱显示当前声音，不是整首歌的静态波形。
+</details>
+
+安装默认深灰橙色。进度条可拖动定位，底部频谱显示当前声音，不是整首歌的静态波形。
 
 <details>
 <summary>更多界面：音乐库、深浅配色和个人默认插画</summary>
@@ -105,11 +123,12 @@
 - 提供中文离线安装助手和正式版下载入口。
 - 修复 PowerShell 5.1 安装错误、首次歌词白底与布局未启用。
 - 修复冷启动列表和封面偶发空白。
-- 本轮用户已逐步验证首次安装、主要界面效果和托盘恢复；长期稳定性、其他屏幕尺寸及全新操作系统仍需观察。
+- 2026-10-19 用户已逐步验证首次安装、主要界面效果和托盘恢复；长期稳定性、其他屏幕尺寸及全新操作系统仍需观察。
 
 [完整变化记录](CHANGELOG.md) · [验证范围](docs/VALIDATION.md)
 
 公开包未包含仍在本机测试的托盘内存优化，不承诺固定内存值。
+
 ## 问题反馈
 
 遇到安装失败、页面空白或其他异常，请到 **[GitHub Issues 提交反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues/new/choose)**。先查看 [已有反馈](https://github.com/konghenfuxue-cpu/foobar-immersive/issues)，同一问题可直接补充。
@@ -119,6 +138,8 @@
 ## 来源与致谢
 
 本项目属于配置整合与局部改造，不把参考主题称为原创成果。完整来源、参考版本、涉及文件与分发边界见 [ATTRIBUTION.md](ATTRIBUTION.md)。
+
+项目 Logo 以 [foobar2000 原版标志](https://www.foobar2000.org/) 为造型参考，使用 AI 生成黑白铅笔草稿变体并加入耳机、围巾与柔和的动漫眼睛，用于标识本社区改造项目。原版标志权益归相应权利人所有。
 
 特别致谢 **Asion、dream7180 / dreamawake、雾隐凝霜（锦瑟）、jk、隔壁老王66662、得闲饮茶吃个包、贴吧闲云哥**，以及各组件、脚本和汉化作者。
 
